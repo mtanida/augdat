@@ -45,7 +45,7 @@ var NYPLPD = (function() {
 
     this.coords = {};
 
-    $.getJSON("js/coords.json", function(data) {
+    $.getJSON("js/clusters-coords.json", function(data) {
       _this.coords = data;
       console.log('All coords loaded');
       _this.coords_loaded.resolve();
@@ -68,7 +68,8 @@ var NYPLPD = (function() {
 
     // get data for each group
     for(var i=0; i<groups; i++) {
-      $.getJSON("js/items/items_"+i+"_"+groups+".json", function(data) {
+      $.getJSON("js/our_items.json", function(data) {
+      //$.getJSON("js/items/items_"+i+"_"+groups+".json", function(data) {
         var items = data.items,
             page = data.page;
         _this.item_groups[page] = items;
@@ -106,7 +107,7 @@ var NYPLPD = (function() {
 
     this.labels = [];
 
-    $.getJSON("js/labels.json", function(data) {
+    $.getJSON("js/clusters-labels.json", function(data) {
       _this.labels = data;
       console.log('All labels loaded');
       _this.labels_loaded.resolve();
@@ -218,7 +219,7 @@ var NYPLPD = (function() {
 
     if (item) {
       //window.open("http://digitalcollections.nypl.org/items/" + item.uuid);
-    window.open("../img/fresh.jpg");
+    window.open(item.uuid);
     }
   };
 
@@ -234,7 +235,8 @@ var NYPLPD = (function() {
     this.activeItem = uuid;
 
     var $item = $('#item-info-box'),
-      $content = $('<div><img src="../img/fresh.jpg" /><h5>'+title+'</h5></div>')
+        $content = $('<div><img src="' + uuid + '" /><h5>'+title+'</h5></div>')
+      //$content = $('<div><img src="../img/fresh.jpg" /><h5>'+title+'</h5></div>')
         //$content = $('<div><img src="http://images.nypl.org/index.php?id='+captureId+'&t=t" /><h5>'+title+'</h5></div>')
 
     // reset item el
@@ -272,6 +274,7 @@ var NYPLPD = (function() {
         item = false;
 
     // attempt to retrieve item info
+    ind = item_row*items_per_row + item_col;
     item_index = coords[item_row*items_per_row + item_col];
     if (item_index >= 0 && item_index < this.items.length){
       var _item = this.items[item_index];
@@ -386,7 +389,7 @@ var NYPLPD = (function() {
 // Load app on ready
 $(function() {
   var config = {
-    item_data_groups: 5,
+    item_data_groups: 1,
     item_w: 10,
     item_h: 10,
     items_per_row: 100
