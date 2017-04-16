@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NYPL Public Domain Release 2016 Visualization
 
 On January 6th, 2016, The New York Public Library made 187,000 digital items in the public domain available for high resolution download. This is a visualization and interface that helps users explore what was contained in that release.
@@ -35,3 +36,8 @@ Go forth, reuse, and let us know what you made with the #nyplremix hashtag! For 
 - [Data & Tools](https://github.com/NYPL-publicdomain/data-and-utilities)
 - [Public Domain Collections](http://publicdomain.nypl.org)
 - [Project Credits](https://github.com/NYPL-publicdomain/nypl-publicdomain.github.io#credits-for-the-january-2016-nypl-public-domain-release)
+||||||| merged common ancestors
+=======
+# augdat
+augmented data repository
+>>>>>>> e585e0a8c88af75dfbbc84800ba84f0cb93f1b6e
