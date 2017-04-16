@@ -1,0 +1,1 @@
+Browse collection of images.
